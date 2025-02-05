@@ -15,8 +15,8 @@ int main() {
     }
 
     // Allocate arrays:
-    // A is a double array of length N.
-    // B is a double array of length 2*N.
+    // A is a int64 array of length N.
+    // B is a int64 array of length 2*N.
     std::vector<int64_t> A(N);
     std::vector<int64_t> B(2 * N);
 
