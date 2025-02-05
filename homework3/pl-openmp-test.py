@@ -10,9 +10,10 @@ def compile_cpp():
     Adjust the compile command as needed for your platform.
     """
     # Example for Linux:
-    compile_command = ["g++", "-O3", "-fopenmp", "-o", "openmp_test", "pl-openmp.cpp"]
+    #compile_command = ["g++", "-O3", "-fopenmp", "-o", "openmp_test", "pl-openmp.cpp"]
     # If you are on macOS and have OpenMP installed via Homebrew, you might need:
-    # compile_command = ["g++", "-O3", "-Xpreprocessor", "-fopenmp", "-lomp", "-o", "openmp_test", "pl-openmp.cpp"]
+    compile_command = ["g++-12", "-O3", "-Xpreprocessor", "-fopenmp", "-lomp", "-o", "openmp_test", "pl-openmp.cpp"]
+    compile_command = ["g++-12", "-O3", "-Xpreprocessor", "-fopenmp", "-L/opt/homebrew/Cellar/libomp/19.1.7/lib", "-lomp", "-o", "openmp_test", "pl-openmp.cpp"]
 
     try:
         print("Compiling C++ code...")

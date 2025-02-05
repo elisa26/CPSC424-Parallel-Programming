@@ -39,6 +39,23 @@ int main() {
 
     // TODO: your code here. Return the sum in the sum double.
     double sum = 0;
+    #pragma omp parallel for
+    for (int64_t i = 0; i < N; i++) {
+        A[i] = A[i] + i;
+        B[i] = B[i] + (i % 2);
+        B[i] = B[i] + A[i] + B[i + N];
+    }
+
+#pragma omp parallel for
+    for (int64_t i = N; i < 2*N; i++) {
+        B[i] = B[i] + 2 * A[i - N] + B[i - N];
+    }
+#pragma omp parallel for reduction(+:sum)
+    for (int64_t i = 0; i < N; i++) {
+        A[i] = 0.5 * (B[i] + B[N - i]);
+        sum += A[i];
+    }
+
 
     double end_time = omp_get_wtime();
     double elapsed = end_time - start_time;
