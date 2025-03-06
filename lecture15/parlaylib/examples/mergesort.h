@@ -1,9 +1,9 @@
 #include <algorithm>
 #include <functional>
 
-#include <parlay/parallel.h>
-#include <parlay/primitives.h>
-#include <parlay/sequence.h>
+#include "parlaylib/include/parlay/parallel.h"
+#include "parlaylib/include/parlay/primitives.h"
+#include "parlaylib/include/parlay/sequence.h"
 
 // **************************************************************
 // Parallel Mergesort
