@@ -1,0 +1,3 @@
+[submodule "lecture15/parlaylib"]
+	path = lecture15/parlaylib
+	url = git@github.com:cmuparlay/parlaylib.git
