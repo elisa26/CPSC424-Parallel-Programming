@@ -20,12 +20,11 @@ int main() {
 
     t.start();
 
-    #pragma omp parallel for
-    for (size_t i = 0; i < n; i++) {
+    parlay::parallel_for (0, n, [&] (size_t i) {
         data[i] = dist(gen);
-    }
+    });
 
-    t.next("omp par_for");
+    t.next("parlay par_for");
 
     // Perform parallel merge sort
     merge_sort(data);
